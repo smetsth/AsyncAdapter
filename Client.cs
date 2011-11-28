@@ -5,13 +5,18 @@ namespace WcfAsyncPattern
 {
     public class Client
     {
-        private void CallService()
+        public static void Main()
+        {
+            CallService();
+        }
+
+        private static void CallService()
         {
             var sa = new MyServiceAdapter();
             sa.MyServiceOperation("input", EndCallService);
         }
 
-        private void EndCallService(Exception ex, string result)
+        private static void EndCallService(Exception ex, string result)
         {
             if(null == ex)
             {
